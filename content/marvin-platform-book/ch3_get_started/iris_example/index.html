@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Starter Guilde</title>
+    <meta name="description" content="Project Community Page">
+    <meta name="author" content="">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le styles -->
+    <link href="/assets/themes/apache/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/apache/css/style.css?body=1" rel="stylesheet" type="text/css">
+    <link href="/assets/themes/apache/css/syntax.css" rel="stylesheet"  type="text/css" media="screen" />
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/assets/themes/apache/img/icon.png">
+    <!-- Update these with your own images
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+  </head>
+
+  <body>
+
+    
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+            <img src="/assets/themes/apache/img/logo_white.png" width="80">
+          </a>
+        </div>
+        <nav class="navbar-collapse collapse" role="navigation">
+          <ul class="nav navbar-nav navbar-right">
+            <li id="community">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Community<b class="caret"></b></a>
+               <ul class="dropdown-menu">
+                <li><a href="/community">Get Involved</a></li>
+                <li><a href="/community-members">Who we are</a></li>
+               </ul>
+            </li>
+            <li><a href="/news">News</a></li>
+            <li><a href="/marvin-platform-book/SUMMARY">Document</a></li>
+            <li><a href="https://github.com/apache/incubator-marvin">GitHub</a></li>
+            <li id="apache">
+              <a href="#" data-toggle="dropdown" class="dropdown-toggle">Apache<b class="caret"></b></a>
+               <ul class="dropdown-menu">
+                <li><a href="http://www.apache.org/foundation/how-it-works.html">Apache Software Foundation</a></li>
+                <li><a href="http://www.apache.org/licenses/">Apache License</a></li>
+                <li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+                <li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+                </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    
+
+
+    <div class="container">
+      
+
+
+<div class="row">
+  <div class="col-md-12">
+    <!--
+
+-->
+
+<h1 id="iris-species-classification">Iris Species Classification</h1>
+
+<h2 id="overview">Overview</h2>
+
+<p>Tutorial for create the Iris Classification example on Marvin without using the ready-made engines.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Python 3.7.3</li>
+  <li>Pandas 0.25.0</li>
+  <li>Scikit-learn 0.21.3</li>
+</ul>
+
+<h2 id="development">Development</h2>
+
+<h3 id="getting-started">Getting started</h3>
+
+<p>First, create a new engine for this project. If you don’t know how, access <em><a href="/marvin-platform-book/ch3_get_started/create_engine">here</a></em>.</p>
+
+<p>The engine was named “iris-classification”.</p>
+
+<p><img src="/assets/get-started/iris-create-engine.png" alt="" /></p>
+
+<p>Now, to be able to work on the project, use the following command</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>workon iris-classification-engine-env
+</code></pre></div></div>
+
+<p>You are now ready to code.</p>
+
+<p>Note: If the workon command not work, type <code class="highlighter-rouge">source ~/.bash_profile</code> and try again.</p>
+
+<h3 id="running-tests">Running tests</h3>
+
+<p>This project uses <em><a href="http://pytest.org/">py.test</a></em> as test runner and <em><a href="https://tox.readthedocs.io">Tox</a></em> to manage virtualenvs.</p>
+
+<p>To run all tests use the following command</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>marvin test
+</code></pre></div></div>
+
+<h3 id="writting-documentation">Writting documentation</h3>
+
+<p>The project documentation is written using <em><a href="http://jupyter.readthedocs.io/">Jupyter</a></em> notebooks. 
+You can start the notebook server from the command line by running the following command</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>marvin notebook
+</code></pre></div></div>
+
+<p>The notebook is accessed by the browser using the address <code class="highlighter-rouge">localhost:8888</code>.</p>
+
+<p><strong>You need to organize the code into cells so that each corresponds an one action of Design Pattern <em><a href="/marvin-platform-book/ch1_main_components/dasfe">DASFE</a></em> of Marvin.</strong></p>
+
+<p><strong>Note that at the end of each cell there is a reserved variable named “marvin_”, it will be responsible for creating the artifacts. Also note that you need to import the libraries that will be used in each cell.</strong></p>
+
+<p>First, you need to load the dataset. This cell it’s the <em>Acquisitor and Cleaner</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Data Acquisitor</span>
+<span class="kn">import</span> <span class="nn">marvin_iris_classification_engine</span>
+<span class="kn">from</span> <span class="nn">marvin_python_toolbox.common.data</span> <span class="kn">import</span> <span class="n">MarvinData</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">MarvinData</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">"https://s3.amazonaws.com/marvin-engines-data/Iris.csv"</span><span class="p">)</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s">'Id'</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">marvin_initial_dataset</span> <span class="o">=</span> <span class="n">iris</span>
+</code></pre></div></div>
+
+<p>In the next cell occurs the dataset split, preparing for training. This cell it’s the <em>Training Preparator</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Training Preparator</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">marvin_initial_dataset</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">train_X</span> <span class="o">=</span> <span class="n">train</span><span class="p">[[</span><span class="s">'SepalLengthCm'</span><span class="p">,</span><span class="s">'SepalWidthCm'</span><span class="p">,</span><span class="s">'PetalLengthCm'</span><span class="p">,</span><span class="s">'PetalWidthCm'</span><span class="p">]]</span>
+<span class="n">train_y</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">Species</span>
+
+<span class="n">test_X</span> <span class="o">=</span> <span class="n">test</span><span class="p">[[</span><span class="s">'SepalLengthCm'</span><span class="p">,</span><span class="s">'SepalWidthCm'</span><span class="p">,</span><span class="s">'PetalLengthCm'</span><span class="p">,</span><span class="s">'PetalWidthCm'</span><span class="p">]]</span>
+<span class="n">test_y</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">Species</span>
+
+<span class="n">marvin_dataset</span> <span class="o">=</span> <span class="p">{</span><span class="s">'train_X'</span><span class="p">:</span> <span class="n">train_X</span><span class="p">,</span> <span class="s">'train_y'</span><span class="p">:</span> <span class="n">train_y</span><span class="p">,</span> <span class="s">'test_X'</span><span class="p">:</span> <span class="n">test_X</span><span class="p">,</span> <span class="s">'test_y'</span><span class="p">:</span> <span class="n">test_y</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Next is the model training. In this tutorial was used the Support Vector Machine (SVM), but you can use the algorithm of your choice. This phase is the <em>Trainer</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Model Traning</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">marvin_dataset</span><span class="p">[</span><span class="s">'train_X'</span><span class="p">],</span> <span class="n">marvin_dataset</span><span class="p">[</span><span class="s">'train_y'</span><span class="p">])</span>
+
+<span class="n">marvin_model</span> <span class="o">=</span> <span class="n">model</span>
+</code></pre></div></div>
+
+<p>The evaluation will now be performed by testing the model prediction. This is the <em>Metrics Evaluator</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Model Evaluation</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">marvin_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">marvin_dataset</span><span class="p">[</span><span class="s">'test_X'</span><span class="p">])</span>
+<span class="n">metric</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">marvin_dataset</span><span class="p">[</span><span class="s">'test_y'</span><span class="p">],</span> <span class="n">predicted</span><span class="p">)</span>
+
+<span class="n">marvin_metrics</span> <span class="o">=</span> <span class="n">metric</span>
+</code></pre></div></div>
+
+<p>The following message does not enter the DASFE Architecture, it serves as Jupyter’s own tests. In this way, it will be in an isolated cell and will not receive any markup.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">input_message</span> <span class="o">=</span> <span class="p">[</span><span class="s">"12"</span><span class="p">,</span> <span class="s">"34"</span><span class="p">,</span> <span class="s">"10"</span><span class="p">,</span> <span class="s">"23"</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>This is where the transformation and reading of the message that will be passed to the predictor. Since the message is already prepared, <em>input_message</em> is not modified, receiving itself. This is the <em>Prediction Preparator</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#Prediction Preparator</span>
+<span class="n">input_message</span> <span class="o">=</span> <span class="n">input_message</span>
+</code></pre></div></div>
+
+<p>The following cell performs the prediction, being the end result. This stage is the <em>Predictor</em>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Predictor</span>
+<span class="n">final_prediction</span> <span class="o">=</span> <span class="n">marvin_model</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">input_message</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> 
+</code></pre></div></div>
+
+<p>Like on the test message, this cell doesn’t enter the DASFE Architecture. This cell is only for checking the result within Jupyter itself.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">print</span><span class="p">(</span><span class="n">final_prediction</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="mark-cells-on-dasfe-architecture">Mark cells on DASFE Architecture</h3>
+
+<p>To make the marks on cells, use a window at the top of the Jupyter code as the image below.</p>
+
+<p><img src="/assets/get-started/dasfe-marvin.png" alt="" /></p>
+
+<p>Once the markup is done, the code should look like this</p>
+
+<p><img src="/assets/get-started/marked.png" alt="" /></p>
+
+<p>If everything is correct, save the changes and quit Jupyter.</p>
+
+<h3 id="running-the-dryrun">Running the Dryrun</h3>
+
+<p>Marvin dryrun is a way to test your code against DASFE standards.</p>
+
+<p><strong>By default, a <em>String</em> message is sent to dryrun, but because the Iris Classifier message is a list of numbers, you must change it to be compatible. As Iris sends four characteristics, you must change the message to a four-number list.</strong></p>
+
+<p><strong>That way, access the <em>engine.messages</em> file inside the folder <code class="highlighter-rouge">../marvin/iris-classification-engine/</code></strong></p>
+
+<p>As explained, will find the file with the following <em>String</em> message</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[{
+	"msg1": "Hello from marvin engine!"
+}]
+</code></pre></div></div>
+
+<p>So it’s necessary delete everything and put the following message</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[[1,2,3,4]]
+</code></pre></div></div>
+
+<p>Now it’s possible perform the correct dryrun of the code. So at the terminal, type</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>marvin engine-dryrun
+</code></pre></div></div>
+
+<h3 id="http-server">Http Server</h3>
+
+<p>With dryrun without errors, it’s possible generate the project API. Thus, the following command is used</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>marvin engine-httpserver
+</code></pre></div></div>
+
+<p>The server is accessed by the browser using the address <code class="highlighter-rouge">localhost:8000/docs</code>.</p>
+
+<p>To test the API, go to <em>Predictor</em>, click in <em>Post</em>, then in <em>Try it out</em>, enter the message and click on <em>Execute</em> as in the image below.</p>
+
+<p><img src="/assets/get-started/predictor.png" alt="" /></p>
+
+<p>Test message for this example</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{"message": ["4.8", "3.4", "1.9", "0.2"]}
+</code></pre></div></div>
+
+<hr />
+
+<ul>
+  <li><a href="/marvin-platform-book/ch3_get_started/overview">Get Started</a></li>
+</ul>
+
+  </div>
+</div>
+
+
+      <hr>
+      <footer>
+        <footer class="site-footer">
+    <div class="wrapper">
+        <div class="footer-col-wrapper">
+            
+            Apache Marvin-AI is an effort undergoing <a href="https://incubator.apache.org/index.html">Incubation</a>
+            at The Apache Software Foundation (ASF), sponsored by the Incubator. Incubation is required of all newly
+            accepted projects until a further review indicates that the infrastructure, communications, and decision
+            making process have stabilized in a manner consistent with other successful ASF projects. While incubation
+            status is not necessarily a reflection of the completeness or stability of the code, it does indicate that
+            the project has yet to be fully endorsed by the ASF.
+            <hr>
+            
+            <div style="text-align:center;">
+                
+                <div style="margin-top: 20px; margin-bottom: 20px;">
+                    <a href="http://incubator.apache.org"><img src="/assets/themes/apache/img/egg-logo.png"
+                                                               alt="Apache Incubator"/></a>
+                </div>
+                
+                <div>
+                    Copyright &copy; 2016 <a href="http://www.apache.org">The Apache Software Foundation</a>.
+                    Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version
+                    2.0</a>.
+                    <br>
+                    
+                    Apache, the Apache Feather logo, and the Apache Incubator project logo are trademarks of The Apache
+                    Software Foundation.
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+    <script src="/assets/themes/apache/jquery/jquery-2.1.1.min.js"></script>
+
+    <script src="/assets/themes/apache/bootstrap/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
+

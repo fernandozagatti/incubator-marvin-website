@@ -37,7 +37,7 @@ limitations under the License.
 
 * [Overview](/marvin-platform-book/README)
 * [Main Components](/marvin-platform-book/ch1_main_components/overview)
-    * [DAFSE](/marvin-platform-book/ch1_main_components/dasfe)
+    * [DASFE](/marvin-platform-book/ch1_main_components/dasfe)
     * [Toolbox](/marvin-platform-book/ch1_main_components/toolbox)
     * [Engine](/marvin-platform-book/ch1_main_components/engine)
     * [Engine Executor](/marvin-platform-book/ch1_main_components/engine_executor)
@@ -49,6 +49,7 @@ limitations under the License.
     * [Docker Installation](/marvin-platform-book/ch2_toolbox_installation/docker)
 * [Get Started](/marvin-platform-book/ch3_get_started/overview)
     * [Creating a New Engine](/marvin-platform-book/ch3_get_started/create_engine)
+        * [Creating a Iris Classification example](/marvin-platform-book/ch3_get_started/iris_example)
     * [Working in an Existent Engine](/marvin-platform-book/ch3_get_started/existent_engine)
     * [Running an Example Engine](/marvin-platform-book/ch3_get_started/engine_examples)
         * [Iris Classification Engine](/marvin-platform-book/ch3_get_started/iris_engine)
